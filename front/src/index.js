@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import App from './App';
 import './index.css';
+import CreateLigue from './pages/CreateLigue';
+import CreateUser from './pages/CreateUser';
 import GuessThePlayer from './pages/GuessThePlayer';
 import Login from './pages/Login';
+import Profil from './pages/Profil';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +19,10 @@ root.render(
                 <Routes>
                     <Route index element={<App />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/profil" element={<Profil />} />
+                    <Route path="/createUser" element={<CreateUser />} />
+                    <Route path="/createLigue" element={<CreateLigue />} />
+
                     <Route
                         path="/guesstheplayer"
                         element={<GuessThePlayer />}
