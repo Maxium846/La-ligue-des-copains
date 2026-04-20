@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginService {
 
-
     public Utilisateur login(String identifiant, String password) throws BusinessException {
 
         String ADMIN = "admin";
