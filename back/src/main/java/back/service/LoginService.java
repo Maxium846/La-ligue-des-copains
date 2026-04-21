@@ -1,21 +1,19 @@
 package back.service;
 
-import back.entity.Personne;
-import back.entity.User;
+import back.entity.Utilisateur;
 import org.springframework.stereotype.Service;
-
-import java.util.Objects;
 
 @Service
 public class LoginService {
 
 
-    public Personne register(String adresseMail, String password) {
+    public Utilisateur login(String adresseMail, String password) {
 
-        User user = new User("admin","admin");
-        Personne personne = new Personne(1, "maxime");
-        if (Objects.equals(adresseMail, user.getAdresseMail()) && Objects.equals(password, user.getPassword())) {
-            return personne;
+        String admin = "admin";
+
+        Utilisateur utilisateur = new Utilisateur(1, "d", null, null);
+        if (admin.equals(password) && admin.equals(adresseMail)) {
+            return utilisateur;
         } else {
 
             throw new RuntimeException("Le mot de passe ou l'email est incorrect");

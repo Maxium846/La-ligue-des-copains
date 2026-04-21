@@ -1,12 +1,9 @@
 package back.controller;
 
-import back.entity.Personne;
-import back.entity.User;
+import back.entity.Utilisateur;
 import back.service.LoginService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jdk.jshell.execution.Util;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api_ligue_des_copains")
@@ -19,9 +16,9 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public Personne Register(@RequestBody User user){
+    public Utilisateur login(@RequestBody Utilisateur user){
 
-      return   loginService.register(user.getAdresseMail(),user.getPassword());
+      return   loginService.login(user.adresseMail(), user.password());
 
 }
 
