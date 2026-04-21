@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/utilisateur")
 public class UtilisateurController {
 
-    public Utilisateur getUtilisateur(){
+    public Utilisateur getUtilisateur() {
 
         return null;
     }

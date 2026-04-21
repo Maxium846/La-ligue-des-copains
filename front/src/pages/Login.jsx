@@ -16,16 +16,22 @@ const Login = () => {
         console.log(data);
         getConnexion(data.adresseMail, data.password)
             .then((data) => {
-                if (data) {
-                    navigate('/profil');
+                if (data.id) {
+                    navigate('/profil', { state: { user: data } });
+                } else {
+                    setError('authentification', {
+                        type: 'custom',
+                        message: data.message
+                    });
                 }
             })
-            .catch((error) =>
+            .catch((error) => {
+                console.log(error);
                 setError('authentification', {
                     type: 'custom',
                     message: error.message
-                })
-            );
+                });
+            });
     };
 
     return (
