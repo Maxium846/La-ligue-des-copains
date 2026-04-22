@@ -1,50 +1,36 @@
-import { useState } from 'react';
-import { createUser} from '../utils/api';
+import { createUser } from '../utils/api';
+import { useForm } from 'react-hook-form';
 
 const CreateUser = () => {
-    const [user, setUser] = useState({
-        identifiant: '',
-        password: '',
-        adresseMail: ''
-    });
+    
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors }
+    } = useForm();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const userToAdd = {
-            identifiant: user.identifiant,
-            password: user.password,
-            adresseMail: user.adresseMail
-        };
-
-        createUser(userToAdd)
+    const onSubmit = (data) => {
+        console.log(data)
+        createUser(data);
+        reset();
     };
+
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                     placeholder="Identifiant"
-                    type="text"
-                    value={user.identifiant}
-                    onChange={(e) =>
-                        setUser({
-                            ...user,
-                            identifiant: e.target.value
-                        })
-                    }></input>
+                    {...register('identifiant', { required: true })}></input>
+                <label>{errors.identifiant && <span>Champ obligatoire</span>}</label>
+                <input
+                    placeholder="Adresse Mail"
+                    {...register('adresseMail', { required: true })}></input>
+                <label>{errors.adresseMail && <span>Champ obligatoire</span>}</label>
                 <input
                     placeholder="Password"
-                    type="text"
-                    value={user.password}
-                    onChange={(e) =>
-                        setUser({ ...user, password: e.target.value })
-                    }></input>
-                <input
-                    placeholder="AdresseMail"
-                    type="text"
-                    value={user.adressMail}
-                    onChange={(e) =>
-                        setUser({ ...user, adresseMail: e.target.value })
-                    }></input>
+                    {...register('password', {required: true})}></input>
+                <label>{errors.password && <span>Champ obligatoire</span>}</label>
 
                 <button type="submit">Valider</button>
             </form>
