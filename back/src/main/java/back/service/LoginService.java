@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 public class LoginService {
 
 
-    public Utilisateur login(String adresseMail, String password) throws BusinessException {
+    public Utilisateur login(String identifiant, String password) throws BusinessException {
 
         String ADMIN = "admin";
 
-        Utilisateur utilisateur = new Utilisateur(1, "d", null, null);
-        if (ADMIN.equals(password) && ADMIN.equals(adresseMail)) {
+        Utilisateur utilisateur = new Utilisateur(1, "admin", "admin", "admin@test.fr");
+        if (ADMIN.equals(password) && ADMIN.equals(identifiant)) {
             return utilisateur;
         } else {
             throw new BusinessException("Le mot de passe ou l'email est incorrect");

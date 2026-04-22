@@ -1,5 +1,11 @@
 import { post } from '../utils/api';
 
-export const getConnexion = (adresseMail, password) => {
-    return post('login', { adresseMail, password });
+export const getConnexion = (identifiant, password) => {
+    return post('login', { identifiant, password });
+};
+
+export const getConnexionFromToken = (token) => {
+    const string = window.atob(token);
+    const tab = string.split(':');
+    return post('login', { identifiant: tab[0], password: tab[1] });
 };
