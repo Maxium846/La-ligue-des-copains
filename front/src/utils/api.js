@@ -34,7 +34,7 @@ export const post = (endpoint, body) => {
 };
 
 export const createUser = async (user) => {
-  const response = await fetch(baseURL + "/users", {
+  const response = await fetch(baseURL + "user", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
