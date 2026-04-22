@@ -5,7 +5,7 @@ const CreateUser = () => {
     const [user, setUser] = useState({
         identifiant: '',
         password: '',
-        adressMail: ''
+        adresseMail: ''
     });
 
     const handleSubmit = (e) => {
@@ -13,7 +13,7 @@ const CreateUser = () => {
         const userToAdd = {
             identifiant: user.identifiant,
             password: user.password,
-            adressMail: user.adressMail
+            adresseMail: user.adressMail
         };
 
         setUser(userToAdd);
@@ -44,7 +44,7 @@ const CreateUser = () => {
                     type="text"
                     value={user.adressMail}
                     onChange={(e) =>
-                        setUser({ ...user, adressMail: e.target.value })
+                        setUser({ ...user, adresseMail: e.target.value })
                     }></input>
 
                 <button type="submit">Valider</button>
