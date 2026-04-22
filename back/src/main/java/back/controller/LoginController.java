@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
-import java.util.Map;
-
 @RestController
 @RequestMapping("/api_ligue_des_copains")
 public class LoginController {
