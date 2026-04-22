@@ -13,17 +13,16 @@ const CreateUser = () => {
         const userToAdd = {
             identifiant: user.identifiant,
             password: user.password,
-            adresseMail: user.adressMail
+            adresseMail: user.adresseMail
         };
 
-        setUser(userToAdd);
-        createUser(user)
+        createUser(userToAdd)
     };
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <input
-                    placeholder="Uersname"
+                    placeholder="Identifiant"
                     type="text"
                     value={user.identifiant}
                     onChange={(e) =>
@@ -33,14 +32,14 @@ const CreateUser = () => {
                         })
                     }></input>
                 <input
-                    placeholder="AdresseMail"
+                    placeholder="Password"
                     type="text"
                     value={user.password}
                     onChange={(e) =>
                         setUser({ ...user, password: e.target.value })
                     }></input>
                 <input
-                    placeholder="Password"
+                    placeholder="AdresseMail"
                     type="text"
                     value={user.adressMail}
                     onChange={(e) =>
