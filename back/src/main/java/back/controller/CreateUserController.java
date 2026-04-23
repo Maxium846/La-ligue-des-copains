@@ -2,7 +2,7 @@ package back.controller;
 
 import back.entity.Utilisateur;
 import back.entity.exception.BusinessException;
-import back.service.LoginService;
+import back.service.CreateUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,14 +16,14 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api_ligue_des_copains")
 @RequiredArgsConstructor
-public class LoginController {
+public class CreateUserController {
 
-    private final LoginService loginService;
+    private final CreateUserService createUserService;
 
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody Utilisateur user) {
+    @PostMapping("/createUser")
+    public ResponseEntity<?> createUser(@RequestBody Utilisateur user) {
         try {
-            return ResponseEntity.ok().body(loginService.login(user.identifiant(), user.password()));
+            return ResponseEntity.ok().body(createUserService.createUser(user.adresseMail(), user.identifiant(), user.password()));
         } catch (BusinessException be) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", be.message));
         }

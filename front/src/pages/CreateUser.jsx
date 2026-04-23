@@ -10,7 +10,7 @@ const CreateUser = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        createUser(data.adresseMail,data.password,data.identifiant);
+        createUser(data.adresseMail, data.password, data.identifiant);
         reset();
     };
 
