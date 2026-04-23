@@ -1,8 +1,7 @@
-import { createUser } from '../utils/api';
 import { useForm } from 'react-hook-form';
+import { createUser } from '../hooks/useUser';
 
 const CreateUser = () => {
-    
     const {
         register,
         handleSubmit,
@@ -11,8 +10,7 @@ const CreateUser = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data)
-        createUser(data);
+        createUser(data.adresseMail,data.password,data.identifiant);
         reset();
     };
 
@@ -22,15 +20,21 @@ const CreateUser = () => {
                 <input
                     placeholder="Identifiant"
                     {...register('identifiant', { required: true })}></input>
-                <label>{errors.identifiant && <span>Champ obligatoire</span>}</label>
+                <label>
+                    {errors.identifiant && <span>Champ obligatoire</span>}
+                </label>
+                <input
+                    placeholder="Password"
+                    {...register('password', { required: true })}></input>
+                <label>
+                    {errors.password && <span>Champ obligatoire</span>}
+                </label>
                 <input
                     placeholder="Adresse Mail"
                     {...register('adresseMail', { required: true })}></input>
-                <label>{errors.adresseMail && <span>Champ obligatoire</span>}</label>
-                <input
-                    placeholder="Password"
-                    {...register('password', {required: true})}></input>
-                <label>{errors.password && <span>Champ obligatoire</span>}</label>
+                <label>
+                    {errors.adresseMail && <span>Champ obligatoire</span>}
+                </label>
 
                 <button type="submit">Valider</button>
             </form>

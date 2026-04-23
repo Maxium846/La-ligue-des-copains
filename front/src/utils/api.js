@@ -33,18 +33,4 @@ export const post = (endpoint, body) => {
     });
 };
 
-export const createUser = async (user) => {
-  const response = await fetch(baseURL + "user", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(user)
-  });
 
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status}`);
-  }
-
-  return await response.json();
-};
