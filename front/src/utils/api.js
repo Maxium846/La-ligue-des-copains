@@ -10,7 +10,7 @@ export const get = (endpoint) => {
         }
     }).then((res) => {
         if (!res?.ok) {
-            throw new Error(`Response status: ${res.status}`);
+            throw new Error(`Response status: ${res.message}`);
         }
         return res.json();
     });
@@ -26,7 +26,7 @@ export const post = (endpoint, body) => {
             'Content-Type': 'application/json'
         }
     }).then((res) => {
-        if (!res?.ok) {
+        if (!(res.ok || res.status === 400)) {
             throw new Error(`Response status: ${res.status}`);
         }
         return res.json();

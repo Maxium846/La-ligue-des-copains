@@ -4,7 +4,7 @@ const App = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex_column">
+        <div className="flex_column center">
             <p>Bienvenue sur la Ligue des Copains</p>
 
             <button onClick={() => navigate('/login')}>Se connecter</button>
