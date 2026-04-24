@@ -20,7 +20,7 @@ export const post = (endpoint, body) => {
     return fetch(baseURL + endpoint, {
         method: 'POST',
         body: JSON.stringify(body),
-        headers: {
+        headers: {   
             'Access-Control-Request-Headers': '*',
             'Access-Control-Request-Method': 'OPTIONS,GET,POST',
             'Content-Type': 'application/json'
@@ -32,3 +32,5 @@ export const post = (endpoint, body) => {
         return res.json();
     });
 };
+
+
