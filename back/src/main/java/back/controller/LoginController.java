@@ -3,6 +3,7 @@ package back.controller;
 import back.entity.Utilisateur;
 import back.entity.exception.BusinessException;
 import back.service.LoginService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,13 +15,10 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api_ligue_des_copains")
+@RequiredArgsConstructor
 public class LoginController {
 
     private final LoginService loginService;
-
-    public LoginController(LoginService registerService) {
-        this.loginService = registerService;
-    }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Utilisateur user) {
